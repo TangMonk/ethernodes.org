@@ -1,1 +1,5 @@
-获取所有中国的静态节点
+Read static node from ethernodes.org
+
+# Usage
+
+run `go run .` and save data to `data.txt`, copy entire text to you geth config file, then done
