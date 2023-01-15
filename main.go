@@ -5,15 +5,21 @@ import (
 	"fmt"
 	"log"
 	"os"
+
 	"strings"
+
+	_ "embed"
 
 	"github.com/oschwald/geoip2-golang"
 
 	"github.com/go-resty/resty/v2"
 )
 
+//go:embed GeoLite2-City.mmdb
+var geoData []byte
+
 func main() {
-	db, err := geoip2.Open("GeoLite2-City.mmdb")
+	db, err := geoip2.FromBytes(geoData)
 	if err != nil {
 		log.Fatal(err)
 	}
